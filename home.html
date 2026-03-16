@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supreme Character Analyzer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & font */
+    body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background: linear-gradient(135deg,#6a11cb,#2575fc); color: white; overflow-x: hidden; }
+    a { text-decoration: none; }
+    
+    /* Container */
+    .container { text-align: center; padding: 80px 20px; }
+
+    /* Header */
+    h1 { font-size: 3rem; margin-bottom: 20px; animation: fadeInDown 1s ease forwards; opacity: 0; }
+    p { font-size: 1.2rem; margin-bottom: 40px; animation: fadeIn 1.5s ease forwards; opacity: 0; }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 15px 35px;
+      margin: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #2575fc;
+      background: white;
+      border-radius: 50px;
+      transition: transform 0.3s, background 0.3s;
+      animation: fadeInUp 2s ease forwards;
+      opacity: 0;
+    }
+    .btn:hover { transform: scale(1.1); background: #e0e0e0; }
+
+    /* Footer */
+    footer { margin-top: 80px; font-size: 0.9rem; color: #f0f0f0; }
+
+    /* Animations */
+    @keyframes fadeInDown { to { opacity:1; transform: translateY(0);} from { opacity:0; transform: translateY(-50px); } }
+    @keyframes fadeInUp { to { opacity:1; transform: translateY(0);} from { opacity:0; transform: translateY(50px); } }
+    @keyframes fadeIn { to { opacity:1;} from { opacity:0;} }
+    
+    /* Floating animation shapes */
+    .float-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float 6s ease-in-out infinite;
+    }
+    .float1 { width: 100px; height: 100px; background: #ffffff33; top: 50px; left: 20%; animation-delay: 0s; }
+    .float2 { width: 150px; height: 150px; background: #ffffff22; top: 200px; left: 70%; animation-delay: 2s; }
+    .float3 { width: 80px; height: 80px; background: #ffffff44; top: 400px; left: 40%; animation-delay: 4s; }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-30px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Shapes -->
+  <div class="float-shape float1"></div>
+  <div class="float-shape float2"></div>
+  <div class="float-shape float3"></div>
+
+  <div class="container">
+    <h1>Supreme Character Analyzer</h1>
+    <p>Instantly count your words, analyze text, and improve your writing. Free and easy to use!</p>
+    
+    <a class="btn" href="your-tool-file.html">Use the Analyzer</a>
+    <a class="btn" href="about.html">About</a>
+    <a class="btn" href="privacy.html">Privacy Policy</a>
+  </div>
+
+  <footer>&copy; 2026 Molcc. All rights reserved.</footer>
+
+</body>
+</html>
