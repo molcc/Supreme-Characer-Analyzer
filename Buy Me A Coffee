@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Supreme Character Analyzer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body, html { margin:0; padding:0; font-family:'Poppins',sans-serif; background: linear-gradient(135deg,#6a11cb,#2575fc); color:white; overflow-x:hidden; }
+    .container { text-align:center; padding:80px 20px; }
+    h1 { font-size:2.8rem; margin-bottom:20px; animation: fadeInDown 1s ease forwards; opacity:0; }
+    p { font-size:1.2rem; max-width:700px; margin:auto; line-height:1.6; animation: fadeIn 1.5s ease forwards; opacity:0; margin-bottom: 20px; }
+    a.btn { display:inline-block; margin-top:40px; padding:15px 35px; font-size:1.1rem; font-weight:600; color:#2575fc; background:white; border-radius:50px; transition: transform 0.3s, background 0.3s; text-decoration:none; }
+    a.btn:hover { transform:scale(1.1); background:#e0e0e0; }
+    footer { margin-top:80px; font-size:0.9rem; color:#f0f0f0; }
+
+    .float-shape { position:absolute; border-radius:50%; opacity:0.3; animation: float 6s ease-in-out infinite; }
+    .float1 { width:100px; height:100px; background:#ffffff33; top:50px; left:20%; animation-delay:0s; }
+    .float2 { width:150px; height:150px; background:#ffffff22; top:200px; left:70%; animation-delay:2s; }
+    .float3 { width:80px; height:80px; background:#ffffff44; top:400px; left:40%; animation-delay:4s; }
+
+    @keyframes fadeInDown { to {opacity:1; transform:translateY(0);} from {opacity:0; transform:translateY(-50px);} }
+    @keyframes fadeIn { to {opacity:1;} from {opacity:0;} }
+    @keyframes float { 0%,100%{transform:translateY(0px);} 50%{transform:translateY(-30px);} }
+  </style>
+</head>
+<body>
+  <div class="float-shape float1"></div>
+  <div class="float-shape float2"></div>
+  <div class="float-shape float3"></div>
+
+  <div class="container">
+    <h1>Buy Me a Coffee </h1>
+    <p>
+     “Enjoying the Supreme Character Analyzer? Your support helps me keep this tool free and running! Every small donation makes a difference and allows me to improve the tool for everyone and persuade my studies. You can donate easily via PayPal to gmpsdarrick@hotmail.com
+. Thank you for helping me continue creating and sharing!”
+    </p>
+    <a class="btn" href="index.html">Back to Home</a>
+  </div>
+
+  <footer>&copy; 2026 Molcc. All rights reserved.</footer>
+</body>
+</html>
