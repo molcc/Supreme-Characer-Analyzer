@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Supreme Character Analyzer</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body{
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    background: rgba(255,255,255,0.95);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+}
+
+h1{
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+p{
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+textarea{
+    width: 100%;
+    height: 200px;
+    font-size: 1rem;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    resize: none;
+    margin-bottom: 20px;
+}
+
+textarea:focus{
+    border: 2px solid #66a6ff;
+    outline: none;
+}
+
+button{
+    background: #66a6ff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+button:hover{
+    background: #89f7fe;
+    transform: scale(1.05);
+}
+
+#result{
+    margin-top: 15px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+#breakdown{
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #333;
+    display: flex;
+    justify-content: space-around;
+    font-weight: 500;
+}
+
+.breakdown-item{
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.letters{ background:#ffd700; color:#000; }
+.numbers{ background:#90ee90; color:#000; }
+.spaces{ background:#87cefa; color:#000; }
+.symbols{ background:#ff7f50; color:#000; }
+
+#readingTime{
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #1a1a1a;
+    font-weight: 500;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Supreme Character Analyzer</h1>
+    <p>Paste your exquisite text below:</p>
+    <textarea id="textInput" placeholder="Type or paste anything..."></textarea>
+    <br>
+    <button onclick="copyToClipboard()">Copy Text</button>
+    <p id="result">Total Characters: 0</p>
+    <div id="breakdown">
+        <div class="breakdown-item letters">Letters: 0</div>
+        <div class="breakdown-item numbers">Numbers: 0</div>
+        <div class="breakdown-item spaces">Spaces: 0</div>
+        <div class="breakdown-item symbols">Symbols: 0</div>
+    </div>
+    <div id="readingTime">Estimated Reading Time: 0 sec</div>
+</div>
+
+<script>
+const textArea = document.getElementById('textInput');
+const result = document.getElementById('result');
+const lettersDiv = document.querySelector('.letters');
+const numbersDiv = document.querySelector('.numbers');
+const spacesDiv = document.querySelector('.spaces');
+const symbolsDiv = document.querySelector('.symbols');
+const readingTime = document.getElementById('readingTime');
+
+function updateCount(){
+    let text = textArea.value;
+    let total = text.length;
+
+    let letters = (text.match(/[a-zA-Z]/g) || []).length;
+    let numbers = (text.match(/[0-9]/g) || []).length;
+    let spaces = (text.match(/\s/g) || []).length;
+    let symbols = total - (letters + numbers + spaces);
+
+    // Update counts instantly (no crazy animation)
+    result.innerText = "Total Characters: " + total;
+    lettersDiv.innerText = "Letters: " + letters;
+    numbersDiv.innerText = "Numbers: " + numbers;
+    spacesDiv.innerText = "Spaces: " + spaces;
+    symbolsDiv.innerText = "Symbols: " + symbols;
+
+    // Reading time estimate (words = total/5, avg 200 wpm)
+    let readingSec = Math.ceil(total / 5 / (200/60));
+    readingTime.innerText = `Estimated Reading Time: ${readingSec} sec`;
+}
+
+// Live update as user types
+textArea.addEventListener('input', updateCount);
+
+// Copy to clipboard
+function copyToClipboard(){
+    textArea.select();
+    textArea.setSelectionRange(0,99999);
+    document.execCommand("copy");
+    alert("Text copied to clipboard!");
+}
+
+// Initialize counts
+updateCount();
+</script>
+
+</body>
+</html>
